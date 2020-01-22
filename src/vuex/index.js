@@ -5,11 +5,20 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-      count: 0
+      count: localStorage.getItem('contagem')!=null?localStorage.getItem('contagem'):0
     },
     mutations: {
-      increment (state) {
-        state.count++
+      incrementar (state) {
+        state.count++;
+        localStorage.setItem('contagem', this.state.count);
+      },
+      decrementar (state) {
+        state.count--;
+        localStorage.setItem('contagem', this.state.count);
+      },
+      zerar (state) {
+        state.count = 0;
+        localStorage.setItem('contagem', this.state.count);
       }
     }
   })
