@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <button @click="decrementar">-</button>
-        <span>{{contador}}</span>
-        <button @click="incrementar">+</button>
-        <button @click="zerar">Zerar contagem</button>
+    <div class="counter">
+        <div class="counter--control">
+            <button @click="decrementar">-</button>
+            <span>{{contador}}</span>
+            <button @click="incrementar">+</button>
+        </div>
+        <button class="counter--reset" @click="zerar">Zerar contagem</button>
     </div>
 </template>
 <script>
@@ -28,5 +30,20 @@ export default {
 }
 </script>
 <style lang="scss">
-
+.counter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &--reset {
+        margin: 15px 0;
+    }
+    &--control {
+        margin: 15px 0;
+        button {
+            margin: 0 10px;
+        }
+    }
+}
 </style>
